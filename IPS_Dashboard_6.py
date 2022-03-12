@@ -48,3 +48,9 @@ elif st.session_state['authentication_status'] == False:
     st.error('Username/password is incorrect')
 elif st.session_state['authentication_status'] == None:
     st.warning('Please enter your username and password')
+
+#Metros cubicos a barriles (aceite)
+bbls = 6.29
+
+#Metros cubicos a pies cubicos (gas)
+ft3 = 35.3147
