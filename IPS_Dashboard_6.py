@@ -49,8 +49,16 @@ elif st.session_state['authentication_status'] == False:
 elif st.session_state['authentication_status'] == None:
     st.warning('Please enter your username and password')
 
-#Metros cubicos a barriles (aceite)
+######################################## CONVERTION FACTORS ########################################
+# Metros cubicos a barriles (aceite)
 bbls = 6.29
-
-#Metros cubicos a pies cubicos (gas)
+# Metros cubicos a pies cubicos (gas)
 ft3 = 35.3147
+# Miles
+M = 1000
+# Millones
+MM = 1000000
+
+######################################## DATA ########################################
+#prod = pd.read_csv()
+st.write('hola')
