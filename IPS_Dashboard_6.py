@@ -35,7 +35,7 @@ img_sidebar[1].image(img,width=100)
 users = pd.read_csv('Usuarios//Usuarios.csv', encoding='utf-8')
 users['pass'] = users['pass'].astype(str)
 users['pass'] = '000' + users['pass']
-users
+#users
 hashed_passwords = stauth.hasher(users['pass']).generate()
 authenticator = stauth.authenticate(users['nombre_c'], users['usuario'], hashed_passwords, 'IPS_Dashboard','key_1', cookie_expiry_days=30)
 
