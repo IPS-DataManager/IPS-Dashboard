@@ -20,6 +20,19 @@ import plotly.graph_objs as go
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
+######################################## CONVERTION FACTORS ########################################
+# Metros cubicos a barriles (aceite)
+bbls = 6.29
+# Metros cubicos a pies cubicos (gas)
+ft3 = 35.3147
+# Miles
+M = 1000
+# Millones
+MM = 1000000
+
+######################################## DATA ########################################
+
+
 ######################################## Page Config ########################################
 APP_TITLE = "IPS Dashboard"
 img=Image.open('Imagenes//IPS.png')
@@ -43,22 +56,11 @@ name, authentication_status = authenticator.login('Login','main')
 
 if st.session_state['authentication_status']:
     st.write('Bienvenido *%s*' % (st.session_state['name']))
-    # st.title('Some content')
+    st.title('Tablero de Campos Maduros - Proyecto Sitio Grande')
+    
+    
+################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
     st.error('Username/password is incorrect')
 elif st.session_state['authentication_status'] == None:
     st.warning('Please enter your username and password')
-
-######################################## CONVERTION FACTORS ########################################
-# Metros cubicos a barriles (aceite)
-bbls = 6.29
-# Metros cubicos a pies cubicos (gas)
-ft3 = 35.3147
-# Miles
-M = 1000
-# Millones
-MM = 1000000
-
-######################################## DATA ########################################
-#prod = pd.read_csv()
-st.write('hola')
