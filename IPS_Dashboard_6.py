@@ -25,14 +25,16 @@ pd.options.mode.chained_assignment = None  # default='warn'
 bbls = 6.29
 # Metros cubicos a pies cubicos (gas)
 ft3 = 35.3147
+#Meses a días
+days = 30.5
 # Miles
 M = 1000
 # Millones
 MM = 1000000
 
 ######################################## DATA ########################################
-    prod = pd.read_csv('Data//Production.csv')
-    prod
+prod = pd.read_csv('Data//Production.csv')
+prod
 
 ######################################## Page Config ########################################
 APP_TITLE = "IPS Dashboard"
@@ -49,12 +51,12 @@ img_sidebar[1].image(img,width=100)
 users = pd.read_csv('Usuarios//Usuarios.csv', encoding='utf-8')
 users['pass'] = users['pass'].astype(str)
 users['pass'] = '000' + users['pass']
-#users
 hashed_passwords = stauth.hasher(users['pass']).generate()
 authenticator = stauth.authenticate(users['nombre_c'], users['usuario'], hashed_passwords, 'IPS_Dashboard','key_1', cookie_expiry_days=30)
 
 name, authentication_status = authenticator.login('Login','main')
 
+################################################################################################################################################################
 if st.session_state['authentication_status']:
     st.write('Bienvenido *%s*' % (st.session_state['name']))
     st.title('Tablero de Campos Maduros - Proyecto Sitio Grande')
