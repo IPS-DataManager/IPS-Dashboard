@@ -33,12 +33,12 @@ M = 1000
 MM = 1000000
 
 ######################################## DATA ########################################
-prod = pd.read_csv('Data\Production.csv')
+prod = pd.read_csv('Data//Production.csv')
 prod
 
 ######################################## Page Config ########################################
 APP_TITLE = "IPS Dashboard"
-img=Image.open('Imagenes\IPS.png')
+img=Image.open('Imagenes//IPS.png')
 st.set_page_config(
     page_title = APP_TITLE,
     page_icon = img,
