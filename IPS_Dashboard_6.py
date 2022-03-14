@@ -20,6 +20,17 @@ import plotly.graph_objs as go
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
+######################################## Page Config ########################################
+APP_TITLE = "IPS Dashboard"
+img=Image.open('Imagenes//IPS.png')
+st.set_page_config(
+    page_title = APP_TITLE,
+    page_icon = img,
+    layout = "wide")
+
+img_sidebar= st.sidebar.columns(3)
+img_sidebar[1].image(img,width=100)
+
 ######################################## CONVERTION FACTORS ########################################
 # Metros cubicos a barriles (aceite)
 bbls = 6.29
@@ -35,17 +46,6 @@ MM = 1000000
 ######################################## DATA ########################################
 prod = pd.read_csv('Data//Production.csv')
 prod
-
-######################################## Page Config ########################################
-APP_TITLE = "IPS Dashboard"
-img=Image.open('Imagenes//IPS.png')
-st.set_page_config(
-    page_title = APP_TITLE,
-    page_icon = img,
-    layout = "wide")
-
-img_sidebar= st.sidebar.columns(3)
-img_sidebar[1].image(img,width=100)
 
 ######################################## Authentication ########################################
 users = pd.read_csv('Usuarios//Usuarios.csv', encoding='utf-8')
