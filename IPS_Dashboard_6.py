@@ -19,6 +19,10 @@ import plotly.express as px
 import plotly.graph_objs as go
 
 pd.options.mode.chained_assignment = None  # default='warn'
+pd.options.display.float_format = '{:,.2f}'.format
+def format_float(value):
+    return f'{value:,.2f}'
+pd.options.display.float_format = format_float
 
 ######################################## Page Config ########################################
 APP_TITLE = "IPS Dashboard"
@@ -60,11 +64,6 @@ if st.session_state['authentication_status']:
     st.write('Bienvenido *%s*' % (st.session_state['name']))
     st.title('Tablero de Campos Maduros - Proyecto Sitio Grande')
     @st.cache
-################################################################################################################################################################
-    pd.options.display.float_format = '{:,.2f}'.format
-    def format_float(value):
-        return f'{value:,.2f}'
-    pd.options.display.float_format = format_float
 ################################################################################################################################################################
     def data():
         production = pd.read_csv('Data\Production.csv')
