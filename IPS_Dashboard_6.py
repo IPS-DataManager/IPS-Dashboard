@@ -92,7 +92,8 @@ if st.session_state['authentication_status']:
         filt_pozos = st.selectbox('Seleccione un pozo', pozos)
         pozo = prod[prod['pozo'] == filt_pozos]
         
-    #prueba = px.scatter(prod.(), x='fecha', y='')
+    prueba = px.scatter(pozo, x='fecha', y='gas_mmcfpd')
+    prueba
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
     st.error('Username/password is incorrect')
