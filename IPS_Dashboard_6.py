@@ -64,7 +64,7 @@ if st.session_state['authentication_status']:
     @st.cache
     def data():
         prod = pd.read_csv('Data//Production.csv')
-        prod['fecha'] = pd.to_datetime(prod['fecha'])
+        prod['fecha'] = pd.to_datetime(prod['fecha']).dt.strftime('%d-%m-%Y')
         
         press_pr = pd.read_csv('Data//RPFC-Plano de referencia.csv')
         press_nmd = pd.read_csv('Data//RPFC-NMD.csv')
