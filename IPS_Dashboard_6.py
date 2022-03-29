@@ -47,9 +47,6 @@ M = 1000
 # Millones
 MM = 1000000
 
-######################################## DATA ########################################
-#prod = pd.read_csv('Data//Production.csv')
-
 ######################################## Authentication ########################################
 users = pd.read_csv('Usuarios//Usuarios.csv', encoding='utf-8')
 users['pass'] = users['pass'].astype(str)
