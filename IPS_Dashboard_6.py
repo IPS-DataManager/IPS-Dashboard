@@ -66,11 +66,11 @@ if st.session_state['authentication_status']:
 ################################################################################################################################################################
     @st.cache
     def data():
-        prod = pd.read_csv('Data\Production.csv')
-        press_pr = pd.read_csv('Data\RPFC-Plano de referencia.csv')
-        press_nmd = pd.read_csv('Data\RPFC-NMD.csv')
-        coords = pd.read_csv('Coords.csv')
-        raa_rga = pd.read_csv('RAA-RGA.csv')
+        prod = pd.read_csv('Data//Production.csv')
+        press_pr = pd.read_csv('Data//RPFC-Plano de referencia.csv')
+        press_nmd = pd.read_csv('Data//RPFC-NMD.csv')
+        coords = pd.read_csv('Data//Coords.csv')
+        raa_rga = pd.read_csv('Data//RAA-RGA.csv')
         return prod, press_pr, press_nmd, coords, raa_rga
     prod, press_pr, press_nmd, coords, raa_rga = data()
 ######################################## DASHBOARD ########################################
