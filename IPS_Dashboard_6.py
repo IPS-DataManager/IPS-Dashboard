@@ -75,13 +75,16 @@ if st.session_state['authentication_status']:
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
+            if st.checkbox('Ver Coordenadas de los Pozos') == True:
+                well_coords
             if st.checkbox('Ver Datos de Producción') == True:
-                st.write('Datos de Producción')
                 prod
-            if st.checkbox('Ver Datos de Presión') == True:
-                st.write('Datos de Presión')
-            if st.checkbox('Ver Datos de Salinidad') == True:
-                st.write('Datos de Salinidad')
+            if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Plano de Referencia') == True:
+                pressure_pr
+            if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Nivel Medio de los Disparos') == True:
+                pressure_nmd
+            if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
+                raa_rga
         with st.expander('RESUMEN DE POZO'):
             prod
     
