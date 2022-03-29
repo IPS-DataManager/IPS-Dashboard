@@ -67,13 +67,18 @@ if st.session_state['authentication_status']:
         prod['fecha'] = pd.to_datetime(prod['fecha']).dt.strftime('%d-%m-%Y')
         
         press_pr = pd.read_csv('Data//RPFC-Plano de referencia.csv')
+        
         press_nmd = pd.read_csv('Data//RPFC-NMD.csv')
+        
         coords = pd.read_csv('Data//Coords.csv')
+        
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
         
+        well_sum = pd.read_csv('Data//Well Summary.csv')
+        
         return prod, press_pr, press_nmd, coords, raa_rga
-    prod, press_pr, press_nmd, coords, raa_rga = data()
+    prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
     
 ######################################## DASHBOARD ########################################
     with st.container():
@@ -89,7 +94,7 @@ if st.session_state['authentication_status']:
             if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
                 raa_rga
         with st.expander('RESUMEN DE POZO'):
-            prod
+            well_sum
             
     with st.sidebar.expander('Selector de pozos'):
         pozos = prod['pozo'].unique()
