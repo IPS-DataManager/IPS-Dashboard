@@ -77,7 +77,7 @@ if st.session_state['authentication_status']:
         
         well_sum = pd.read_csv('Data//Well Summary.csv')
         
-        return prod, press_pr, press_nmd, coords, raa_rga
+        return prod, press_pr, press_nmd, coords, raa_rga, well_sum
     prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
     
 ######################################## DASHBOARD ########################################
