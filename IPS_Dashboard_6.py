@@ -72,7 +72,7 @@ if st.session_state['authentication_status']:
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
-            st.title('Datos de Producción')
+            st.write('Datos de Producción')
             prod
         with st.expander('RESUMEN DE POZO'):
             prod
