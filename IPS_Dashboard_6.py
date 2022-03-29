@@ -62,6 +62,7 @@ if st.session_state['authentication_status']:
     with st.container():
         with st.expander('DATOS DUROS'):
             prod
+            prod.describe()
         with st.expander('RESUMEN DE POZO'):
             prod
     
