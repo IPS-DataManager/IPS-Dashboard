@@ -75,6 +75,10 @@ if st.session_state['authentication_status']:
             if st.checkbox('Ver Datos de Producción') == True:
                 st.write('Datos de Producción')
                 prod
+            if st.checkbox('Ver Datos de Presión') == True:
+                st.write('Datos de Presión')
+            if st.checkbox('Ver Datos de Salinidad') == True:
+                st.write('Datos de Salinidad')
         with st.expander('RESUMEN DE POZO'):
             prod
     
