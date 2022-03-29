@@ -75,7 +75,7 @@ if st.session_state['authentication_status']:
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
         
-        well_sum = pd.read_excel('Data//Well Summary.xlsx')
+        well_sum = pd.read_excel('Data//Well Summary.xls')
         
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum
     prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
