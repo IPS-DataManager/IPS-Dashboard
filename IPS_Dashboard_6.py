@@ -70,10 +70,7 @@ if st.session_state['authentication_status']:
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
         return prod, press_pr, press_nmd, coords, raa_rga
     prod, press_pr, press_nmd, coords, raa_rga = data()
-    with st.sidebar.expander('Selector de pozos'):
-        pozos = campo['terminacion'].unique()
-        filt_pozos = st.selectbox('Seleccione un pozo', pozos)
-        pozo = campo[campo['terminacion'] == filt_pozos]
+    
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
@@ -89,6 +86,12 @@ if st.session_state['authentication_status']:
                 raa_rga
         with st.expander('RESUMEN DE POZO'):
             prod
+            
+    with st.sidebar.expander('Selector de pozos'):
+        pozos = prod['terminacion'].unique()
+        filt_pozos = st.selectbox('Seleccione un pozo', pozos)
+        pozo = campo[prod['terminacion'] == filt_pozos]
+        
     #prueba = px.scatter(prod.(), x='fecha', y='')
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
