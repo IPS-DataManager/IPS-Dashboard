@@ -67,8 +67,11 @@ if st.session_state['authentication_status']:
 ################################################################################################################################################################
     def data():
         production = pd.read_csv('Data\Production.csv')
-        #pressure = pd.read_csv('Data\Pressure.csv')
-        return production
+        pressure_pr = pd.read_csv('Data\RPFC-Plano de referencia.csv')
+        pressure_nmd = pd.read_csv('Data\RPFC-NMD.csv')
+        well_coords = pd.read_csv('Coords.csv')
+        raa_rga = pd.read_csv('RAA-RGA.csv)
+        return production, pressure_pr, pressure_nmd, well_coords, raa_rga
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
