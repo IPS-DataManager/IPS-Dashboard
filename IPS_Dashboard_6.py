@@ -48,7 +48,7 @@ M = 1000
 MM = 1000000
 
 ######################################## DATA ########################################
-prod = pd.read_csv('Data//Production.csv')
+#prod = pd.read_csv('Data//Production.csv')
 
 ######################################## Authentication ########################################
 users = pd.read_csv('Usuarios//Usuarios.csv', encoding='utf-8')
@@ -63,15 +63,16 @@ name, authentication_status = authenticator.login('Login','main')
 if st.session_state['authentication_status']:
     st.write('Bienvenido *%s*' % (st.session_state['name']))
     st.title('Tablero de Campos Maduros - Proyecto Sitio Grande')
-    @st.cache
 ################################################################################################################################################################
+    @st.cache
     def data():
         prod = pd.read_csv('Data\Production.csv')
         press_pr = pd.read_csv('Data\RPFC-Plano de referencia.csv')
         press_nmd = pd.read_csv('Data\RPFC-NMD.csv')
         coords = pd.read_csv('Coords.csv')
         raa_rga = pd.read_csv('RAA-RGA.csv')
-        return prod, pressure_pr, pressure_nmd, well_coords, raa_rga
+        return prod, press_pr, press_nmd, coords, raa_rga
+    prod, press_pr, press_nmd, coords, raa_rga = data()
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
