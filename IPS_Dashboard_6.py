@@ -73,8 +73,8 @@ if st.session_state['authentication_status']:
     with st.container():
         with st.expander('DATOS DUROS'):
             if st.checkbox('Ver Datos de Producción') == True:
-            st.write('Datos de Producción')
-            prod
+                st.write('Datos de Producción')
+                prod
         with st.expander('RESUMEN DE POZO'):
             prod
     
