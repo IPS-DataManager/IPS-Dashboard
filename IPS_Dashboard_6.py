@@ -60,7 +60,7 @@ if st.session_state['authentication_status']:
     st.write('Bienvenido *%s*' % (st.session_state['name']))
     st.title('Tablero de Campos Maduros - Proyecto Sitio Grande')
     with st.container():
-        with st.expander('DATA)'):
+        with st.expander('DATA'):
             prod
     
 ################################################################################################################################################################
