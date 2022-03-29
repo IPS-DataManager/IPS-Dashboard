@@ -66,23 +66,23 @@ if st.session_state['authentication_status']:
     @st.cache
 ################################################################################################################################################################
     def data():
-        production = pd.read_csv('Data\Production.csv')
-        pressure_pr = pd.read_csv('Data\RPFC-Plano de referencia.csv')
-        pressure_nmd = pd.read_csv('Data\RPFC-NMD.csv')
-        well_coords = pd.read_csv('Coords.csv')
+        prod = pd.read_csv('Data\Production.csv')
+        press_pr = pd.read_csv('Data\RPFC-Plano de referencia.csv')
+        press_nmd = pd.read_csv('Data\RPFC-NMD.csv')
+        coords = pd.read_csv('Coords.csv')
         raa_rga = pd.read_csv('RAA-RGA.csv')
-        return production, pressure_pr, pressure_nmd, well_coords, raa_rga
+        return prod, pressure_pr, pressure_nmd, well_coords, raa_rga
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
             if st.checkbox('Ver Coordenadas de los Pozos') == True:
-                well_coords
+                coords
             if st.checkbox('Ver Datos de Producción') == True:
                 prod
             if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Plano de Referencia') == True:
-                pressure_pr
+                press_pr
             if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Nivel Medio de los Disparos') == True:
-                pressure_nmd
+                press_nmd
             if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
                 raa_rga
         with st.expander('RESUMEN DE POZO'):
