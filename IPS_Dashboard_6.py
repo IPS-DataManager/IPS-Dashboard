@@ -70,6 +70,8 @@ if st.session_state['authentication_status']:
         press_nmd = pd.read_csv('Data//RPFC-NMD.csv')
         coords = pd.read_csv('Data//Coords.csv')
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
+        raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
+        
         return prod, press_pr, press_nmd, coords, raa_rga
     prod, press_pr, press_nmd, coords, raa_rga = data()
     
