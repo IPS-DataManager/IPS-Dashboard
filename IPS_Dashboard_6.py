@@ -65,10 +65,10 @@ if st.session_state['authentication_status']:
     st.title('Tablero de Campos Maduros - Proyecto Sitio Grande')
     @st.cache
 ################################################################################################################################################################
-    pd.options.display.float_format = '{:,.2f}'.format
-    def format_float(value):
-        return f'{value:,.2f}'
-    pd.options.display.float_format = format_float
+pd.options.display.float_format = '{:,.2f}'.format
+def format_float(value):
+    return f'{value:,.2f}'
+pd.options.display.float_format = format_float
 ################################################################################################################################################################
     def data():
         production = pd.read_csv('Data\Production.csv')
