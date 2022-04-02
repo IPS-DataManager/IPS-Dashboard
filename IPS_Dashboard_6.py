@@ -67,8 +67,10 @@ if st.session_state['authentication_status']:
         prod['fecha'] = pd.to_datetime(prod['fecha']).dt.strftime('%d-%m-%Y')
         
         press_pr = pd.read_csv('Data//RPFC-Plano de referencia.csv')
-        
+        press_pr['fecha'] = pd.to_datetime(press_pr['fecha']).dt.strftime('%d-%m-%Y')
+                
         press_nmd = pd.read_csv('Data//RPFC-NMD.csv')
+        press_nmd['fecha'] = pd.to_datetime(press_nmd['fecha']).dt.strftime('%d-%m-%Y')
         
         coords = pd.read_csv('Data//Coords.csv')
         
