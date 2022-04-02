@@ -89,11 +89,13 @@ if st.session_state['authentication_status']:
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum
     prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
     
+    expedientes = U:\G&G_Data_Location\01 GENERAL WELL INFORMATION\WELL INFORMATION\EXPENDIENTES POZOS SITIO GRANDE
+    
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
             if st.checkbox('Ver Coordenadas de los Pozos') == True:
-                coords
+                table(coords)
             if st.checkbox('Ver Datos de Producción') == True:
                 prod
             if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Plano de Referencia') == True:
@@ -103,6 +105,7 @@ if st.session_state['authentication_status']:
             if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
                 raa_rga
         with st.expander('RESUMEN DE POZO'):
+            st.button('Consultar expedientes de pozo', expedientes)
             st.table(well_sum)
             
     with st.sidebar.expander('Selector de pozos'):
