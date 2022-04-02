@@ -103,7 +103,7 @@ if st.session_state['authentication_status']:
             if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
                 raa_rga
         with st.expander('RESUMEN DE POZO'):
-            st.button('Consultar expedientes de pozo', expedientes)
+            st.button('Consultar expedientes de pozo')
             st.table(well_sum)
             
     with st.sidebar.expander('Selector de pozos'):
