@@ -93,7 +93,7 @@ if st.session_state['authentication_status']:
     with st.container():
         with st.expander('DATOS DUROS'):
             if st.checkbox('Ver Coordenadas de los Pozos') == True:
-                table(coords)
+                st.table(coords)
             if st.checkbox('Ver Datos de Producción') == True:
                 prod
             if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Plano de Referencia') == True:
