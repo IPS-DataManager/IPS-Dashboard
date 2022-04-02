@@ -93,7 +93,7 @@ if st.session_state['authentication_status']:
     with st.container():
         with st.expander('DATOS DUROS'):
             if st.checkbox('Ver Coordenadas de los Pozos') == True:
-                st.table(coords)
+                coords
             if st.checkbox('Ver Datos de Producción') == True:
                 prod
             if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Plano de Referencia') == True:
@@ -104,7 +104,7 @@ if st.session_state['authentication_status']:
                 raa_rga
         with st.expander('RESUMEN DE POZOS'):
             st.caption('Consultar expedientes de pozo - http://172.16.7.254:5000/sharing/QQKBT3fJW')
-            st.table(well_sum)
+            well_sum
             
     with st.sidebar.expander('Selector de pozos'):
         pozos = prod['Pozo'].unique()
