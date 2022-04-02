@@ -102,7 +102,7 @@ if st.session_state['authentication_status']:
                 press_nmd
             if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
                 raa_rga
-        with st.expander('RESUMEN DE POZO'):
+        with st.expander('RESUMEN DE POZOS'):
             st.caption('Consultar expedientes de pozo - http://172.16.7.254:5000/sharing/QQKBT3fJW')
             st.table(well_sum)
             
