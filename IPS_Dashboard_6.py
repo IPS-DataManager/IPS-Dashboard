@@ -24,6 +24,9 @@ def format_float(value):
     return f'{value:,.2f}'
 pd.options.display.float_format = format_float
 
+def make_clickable(val):
+    return '<a href="{}">{}</a>'.format(val,val)
+
 ######################################## Page Config ########################################
 APP_TITLE = "IPS Dashboard"
 img=Image.open('Imagenes//IPS.png')
@@ -85,6 +88,7 @@ if st.session_state['authentication_status']:
         well_sum = pd.read_excel('Data//Well Summary.xlsx')
         well_sum['fecha de terminacion'] = pd.to_datetime(well_sum['fecha de terminacion']).dt.strftime('%d-%m-%Y')
         well_sum.columns = [x.capitalize() for x in well_sum.columns]
+        well_sum.style.format(make_clickable)
 
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum
     prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
