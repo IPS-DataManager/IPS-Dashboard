@@ -106,7 +106,7 @@ if st.session_state['authentication_status']:
             well_sum
             
     with st.sidebar.expander('Selector de pozos'):
-        pozos = prod['pozo'].unique()
+        pozos = prod['Pozo'].unique()
         filt_pozos = st.selectbox('Seleccione un Pozo', pozos)
         pozo = prod[prod['Pozo'] == filt_pozos]
         
