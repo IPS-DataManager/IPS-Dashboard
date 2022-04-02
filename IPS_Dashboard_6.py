@@ -78,7 +78,8 @@ if st.session_state['authentication_status']:
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
         
         well_sum = pd.read_csv('Data//Well Summary.csv')
-        
+        well_sum['fecha'] = pd.to_datetime(well_sum['fecha']).dt.strftime('%d-%m-%Y')
+
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum
     prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
     
