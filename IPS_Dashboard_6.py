@@ -89,8 +89,6 @@ if st.session_state['authentication_status']:
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum
     prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
     
-    expedientes = U:\G&G_Data_Location\01 GENERAL WELL INFORMATION\WELL INFORMATION\EXPENDIENTES POZOS SITIO GRANDE
-    
 ######################################## DASHBOARD ########################################
     with st.container():
         with st.expander('DATOS DUROS'):
