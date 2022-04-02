@@ -65,20 +65,26 @@ if st.session_state['authentication_status']:
     def data():
         prod = pd.read_csv('Data//Production.csv')
         prod['fecha'] = pd.to_datetime(prod['fecha']).dt.strftime('%d-%m-%Y')
+        prod.columns = [x.capitalize() for x in prod.columns]
         
         press_pr = pd.read_csv('Data//RPFC-Plano de referencia.csv')
         press_pr['fecha'] = pd.to_datetime(press_pr['fecha']).dt.strftime('%d-%m-%Y')
+        press_pr.columns = [x.capitalize() for x in press_pr.columns]
                 
         press_nmd = pd.read_csv('Data//RPFC-NMD.csv')
         press_nmd['fecha'] = pd.to_datetime(press_nmd['fecha']).dt.strftime('%d-%m-%Y')
+        press_nmd.columns = [x.capitalize() for x in press_nmd.columns]
         
         coords = pd.read_csv('Data//Coords.csv')
+        coords.columns = [x.capitalize() for x in coords.columns]
         
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
+        raa_rga.columns = [x.capitalize() for x in raa_rga.columns]
         
         well_sum = pd.read_csv('Data//Well Summary.csv')
         well_sum['fecha de terminacion'] = pd.to_datetime(well_sum['fecha de terminacion']).dt.strftime('%d-%m-%Y')
+        well_sum.columns = [x.capitalize() for x in well_sum.columns]
 
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum
     prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
