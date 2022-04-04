@@ -103,7 +103,7 @@ if st.session_state['authentication_status']:
             if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
                 raa_rga
         with st.expander('RESUMEN DE POZOS'):
-            st.caption('Consultar expedientes de pozo - http://172.16.7.254:5000/sharing/QQKBT3fJW')
+            st.caption('Consultar expedientes de pozo - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
             well_sum
             
     with st.sidebar.expander('Selector de pozos'):
