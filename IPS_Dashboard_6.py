@@ -82,7 +82,7 @@ if st.session_state['authentication_status']:
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
         raa_rga.columns = [x.capitalize() for x in raa_rga.columns]
         
-        well_sum = pd.read_excel('Data//Well Summary.xlsx')
+        well_sum = pd.read_excel('Data//Resumen de los pozos.xlsx')
         well_sum['fecha de terminacion'] = pd.to_datetime(well_sum['fecha de terminacion']).dt.strftime('%d-%m-%Y')
         well_sum.columns = [x.capitalize() for x in well_sum.columns]
 
@@ -100,7 +100,7 @@ if st.session_state['authentication_status']:
                 press_pr
             if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Nivel Medio de los Disparos') == True:
                 press_nmd
-            if st.checkbox('Ver Datos de Productividad (RAA/RGA)') == True:
+            if st.checkbox('Ver Datos RAA/RGA') == True:
                 raa_rga
         with st.expander('RESUMEN DE POZOS'):
             st.caption('Consultar expedientes de pozo - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
