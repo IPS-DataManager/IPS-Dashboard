@@ -76,7 +76,7 @@ if st.session_state['authentication_status']:
         press_nmd.columns = [x.capitalize() for x in press_nmd.columns]
         
         coords = pd.read_csv('Data//Coords.csv')
-        coords.columns = [x.capitalize() for x in coords.columns]
+        coords.columns = [x.lower() for x in coords.columns]
         
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
