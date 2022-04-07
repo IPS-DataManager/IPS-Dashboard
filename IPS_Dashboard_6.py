@@ -111,6 +111,9 @@ if st.session_state['authentication_status']:
                 raa_rga
         with st.expander('RESUMEN DE POZOS'):
             st.write('Consultar expedientes - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
+            mapa_pozos = px.scatter_mapbox(coords, lat="lat", lon="lon", hover_name="Pozo", zoom=7.5)
+            mapa_pozos.update_layout(mapbox_style="stamen-terrain", margin={"r":0,"t":0,"l":0,"b":0}, height=350, width=1000, showlegend=False)
+            st.plotly_chart(mapa_pozos)
             well_sum
             
         with st.expander('HISTORIAL DE INTERVALOS DISPARADOS POR POZO'):
