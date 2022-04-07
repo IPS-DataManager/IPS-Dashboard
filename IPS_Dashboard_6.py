@@ -85,9 +85,11 @@ if st.session_state['authentication_status']:
         well_sum = pd.read_excel('Data//Resumen de pozos.xlsx')
         well_sum['fecha de terminacion'] = pd.to_datetime(well_sum['fecha de terminacion']).dt.strftime('%d-%m-%Y')
         well_sum.columns = [x.capitalize() for x in well_sum.columns]
+        
+        shots = pd.read_excel('Data//Zones.xlsx')
 
-        return prod, press_pr, press_nmd, coords, raa_rga, well_sum
-    prod, press_pr, press_nmd, coords, raa_rga, well_sum = data()
+        return prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots
+    prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots = data()
     
 ######################################## DASHBOARD ########################################
     with st.container():
@@ -105,6 +107,9 @@ if st.session_state['authentication_status']:
         with st.expander('RESUMEN DE POZOS'):
             st.write('Consultar expedientes - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
             well_sum
+            
+        with st.expander('HISTORIAL DE INTERVALOS DISPARADOS POR POZO'):
+            shots
             
     with st.sidebar.expander('Selector de pozos'):
         pozos = prod['Pozo'].unique()
