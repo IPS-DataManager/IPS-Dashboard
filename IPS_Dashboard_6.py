@@ -87,7 +87,11 @@ if st.session_state['authentication_status']:
         well_sum.columns = [x.capitalize() for x in well_sum.columns]
         
         shots = pd.read_excel('Data//Zones.xlsx', sheet_name='INTERVALOS')
+        shots['FECHA DE DISPARO'] = pd.to_datetime(shots['FECHA DE DISPARO']).dt.strftime('%d-%m-%Y')
+        shots['FECHA DE CIERRE'] = pd.to_datetime(shots['FECHA DE CIERRE']).dt.strftime('%d-%m-%Y')
+        shots.columns = [x.capitalize() for x in shots.columns]
 
+        
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots
     prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots = data()
     
