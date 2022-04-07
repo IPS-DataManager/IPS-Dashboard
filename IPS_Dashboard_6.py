@@ -8,6 +8,7 @@ Created on Fri Mar 11 09:09:48 2022
 import streamlit as st
 from PIL import Image
 import streamlit_authenticator as stauth
+import webbrowser
 
 #EDA
 import pandas as pd 
