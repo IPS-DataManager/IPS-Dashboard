@@ -91,19 +91,21 @@ if st.session_state['authentication_status']:
     
 ######################################## DASHBOARD ########################################
     with st.container():
-        with st.expander('DATOS DUROS'):
+        with st.expander('DATOS DUROS - PRODUCTIVIDAD'):
             if st.checkbox('Ver Coordenadas de los Pozos') == True:
                 coords
-            if st.checkbox('Ver Datos de Producción') == True:
+            if st.checkbox('Ver Producción de Pozos') == True:
                 prod
-            if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Plano de Referencia') == True:
+            if st.checkbox('Ver Registro de Presión de Fondo Cerrado al Plano de Referencia') == True:
                 press_pr
-            if st.checkbox('Ver Datos de Registro de Presión de Fondo Cerrado al Nivel Medio de los Disparos') == True:
+            if st.checkbox('Ver Registro de Presión de Fondo Cerrado al Nivel Medio de los Disparos') == True:
                 press_nmd
             if st.checkbox('Ver Datos RAA/RGA') == True:
                 raa_rga
         with st.expander('RESUMEN DE POZOS'):
-            st.caption('Consultar expedientes de pozo - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
+            expedientes = 'http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_'
+            if st.button('Consultar expedientes de pozo'):
+                webbrowser.open_new_tab(expedientes)
             well_sum
             
     with st.sidebar.expander('Selector de pozos'):
