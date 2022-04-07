@@ -86,7 +86,7 @@ if st.session_state['authentication_status']:
         well_sum['fecha de terminacion'] = pd.to_datetime(well_sum['fecha de terminacion']).dt.strftime('%d-%m-%Y')
         well_sum.columns = [x.capitalize() for x in well_sum.columns]
         
-        shots = pd.read_excel('Data//Zones.xlsx')
+        shots = pd.read_excel('Data//Zones.xlsx', sheet_name='INTERVALOS')
 
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots
     prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots = data()
