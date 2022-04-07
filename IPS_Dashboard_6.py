@@ -105,7 +105,7 @@ if st.session_state['authentication_status']:
                 raa_rga
         with st.expander('RESUMEN DE POZOS'):
             expedientes = 'http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_'
-            if st.button('Consultar expedientes de pozo'):
+            if st.button == True:
                 webbrowser.open_new_tab(expedientes)
             well_sum
             
