@@ -90,6 +90,7 @@ if st.session_state['authentication_status']:
         shots['FECHA DE DISPARO'] = pd.to_datetime(shots['FECHA DE DISPARO']).dt.strftime('%d-%m-%Y')
         shots['FECHA DE CIERRE'] = pd.to_datetime(shots['FECHA DE CIERRE']).dt.strftime('%d-%m-%Y')
         shots.columns = [x.capitalize() for x in shots.columns]
+        shots = shots.fillna('NO DISPONIBLE')
 
         
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots
