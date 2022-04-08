@@ -132,9 +132,9 @@ if st.session_state['authentication_status']:
             w_prod_plot.update_yaxes(title_text="<b> Aceite [SBPD] / Agua [SBPD] </b> ", secondary_y=False, nticks=10)
             w_prod_plot.update_yaxes(title_text="<b> Gas [MMSPCD]</b>", secondary_y=True, nticks=10)
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
-            prod_plots[0].w_prod_plot
+            prod_plots[0].plotly_chart(w_prod_plot)
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
-                well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
+                prod_plots[0].well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
             
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
