@@ -140,9 +140,9 @@ if st.session_state['authentication_status']:
                 prod_plots[0].well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
                 
             raa_rga_plot = go.Figure()
-            raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='markers', marker_line_width=.3, marker=dict(size=5,color='red')))
-            raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wc'], name="Corte de Agua", mode='markers', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
-            raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wor'], name="RAA", mode='markers', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
+            raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
+            raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wc'], name="Corte de Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
+            raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wor'], name="RAA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
             raa_rga_plot.update_layout(hovermode="x unified", legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
                 yaxis=dict(nticks=20, exponentformat='none', title="<b>RGA [sm3/sm3]</b>", titlefont=dict(
                         color="black"), tickfont=dict(color="black")),
