@@ -80,7 +80,10 @@ if st.session_state['authentication_status']:
         
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
+        raa_rga['gor'] = raa_rga['gor'].astype(float)
+        raa_rga['wor'] = raa_rga['wor'].astype(float)
         raa_rga.columns = [x.capitalize() for x in raa_rga.columns]
+        
         
         well_sum = pd.read_excel('Data//Resumen de pozos.xlsx')
         well_sum['fecha de terminacion'] = pd.to_datetime(well_sum['fecha de terminacion']).dt.strftime('%d-%m-%Y')
