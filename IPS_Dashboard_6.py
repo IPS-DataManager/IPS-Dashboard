@@ -97,6 +97,11 @@ if st.session_state['authentication_status']:
     prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots = data()
     
 ######################################## DASHBOARD ########################################
+    with st.sidebar.expander('Selector de pozos'):
+        pozos = prod['Pozo'].unique()
+        filt_pozos = st.selectbox('Seleccione un Pozo', pozos)
+        pozo = prod[prod['Pozo'] == filt_pozos]
+        
     with st.container():
         with st.expander('DATOS DUROS - PRODUCTIVIDAD'):
             if st.checkbox('Ver Coordenadas de los Pozos') == True:
@@ -117,11 +122,7 @@ if st.session_state['authentication_status']:
         with st.expander('HISTORIAL DE INTERVALOS DISPARADOS POR POZO'):
             shots
             
-    with st.sidebar.expander('Selector de pozos'):
-        pozos = prod['Pozo'].unique()
-        filt_pozos = st.selectbox('Seleccione un Pozo', pozos)
-        pozo = prod[prod['Pozo'] == filt_pozos]
-        
+
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
     st.error('Username/password is incorrect')
