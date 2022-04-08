@@ -82,8 +82,8 @@ if st.session_state['authentication_status']:
         raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
         raa_rga['gor'] = raa_rga['gor'].astype(float)
         raa_rga['wor'] = raa_rga['wor'].astype(float)
+        raa_rga['wc'] = raa_rga['wc'].astype(float)
         raa_rga.columns = [x.capitalize() for x in raa_rga.columns]
-        
         
         well_sum = pd.read_excel('Data//Resumen de pozos.xlsx')
         well_sum['fecha de terminacion'] = pd.to_datetime(well_sum['fecha de terminacion']).dt.strftime('%d-%m-%Y')
@@ -116,6 +116,7 @@ if st.session_state['authentication_status']:
                 press_nmd
             if st.checkbox('Ver Datos RAA/RGA') == True:
                 raa_rga
+                
         with st.expander('RESUMEN DE POZOS'):
             st.write('Consultar expedientes - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
             st.map(coords)
