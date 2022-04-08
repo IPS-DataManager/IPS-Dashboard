@@ -136,8 +136,6 @@ if st.session_state['authentication_status']:
             w_prod_plot.update_yaxes(title_text="<b> Gas [MMSPCD]</b>", secondary_y=True, nticks=10)
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
             prod_plots[0].plotly_chart(w_prod_plot)
-            if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
-                prod_plots[0].well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
                 
             raa_rga_plot = go.Figure()
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
@@ -160,9 +158,6 @@ if st.session_state['authentication_status']:
             raa_rga_plot.update_yaxes(rangemode="tozero")
             prod_plots[0].plotly_chart(raa_rga_plot)
 
-            if st.button(f'Exportar Gráfico de RAA-RGA Histórica {filt_pozos}') == True:
-                prod_plots[0].raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
-            
             cum_oil_plot = px.ecdf(pozo, x="Fecha", y="Aceite_bpm", ecdfnorm=None)
             cum_oil_plot.update_layout(hovermode="x unified", title=f'Producción de Aceite Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=500)
             cum_oil_plot.update_traces(marker=dict(color='green'))
@@ -182,6 +177,10 @@ if st.session_state['authentication_status']:
             cum_gas_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
             cum_gas_plot
             
+            if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
+                prod_plots[0].well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
+            if st.button(f'Exportar Gráfico de RAA-RGA Histórica {filt_pozos}') == True:
+                prod_plots[0].raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
     st.error('Username/password is incorrect')
