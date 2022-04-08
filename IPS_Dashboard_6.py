@@ -92,7 +92,6 @@ if st.session_state['authentication_status']:
         shots.columns = [x.capitalize() for x in shots.columns]
         shots = shots.fillna('NO DISPONIBLE')
 
-        
         return prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots
     prod, press_pr, press_nmd, coords, raa_rga, well_sum, shots = data()
     
@@ -128,13 +127,37 @@ if st.session_state['authentication_status']:
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='green'),name='Aceite'),secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Agua_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='blue'), name='Agua'), secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='red'),name='Gas'),secondary_y=True)
-            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=15, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=500, width=600)
+            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=15, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=500, width=1200)
             w_prod_plot.update_yaxes(title_text="<b> Aceite [SBPD] / Agua [SBPD] </b> ", secondary_y=False, nticks=10)
             w_prod_plot.update_yaxes(title_text="<b> Gas [MMSPCD]</b>", secondary_y=True, nticks=10)
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
             prod_plots[0].plotly_chart(w_prod_plot)
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
                 prod_plots[0].well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
+                
+            raa_rga_plot = go.Figure()
+            raa_rga_plot.add_trace(go.Scatter(x=raa_rga['Fecha'], y=raa_rga['Gor'], name="RGA", mode='markers', marker_line_width=.3, marker=dict(size=5,color='red')))
+            raa_rga_plot.add_trace(go.Scatter(x=raa_rga['Fecha'], y=raa_rga['Wc'], name="Corte de Agua", mode='markers', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
+            raa_rga_plot.add_trace(go.Scatter(x=raa_rga['Fecha'], y=raa_rga['Wor'], name="RAA", mode='markers', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
+            raa_rga_plot.update_layout(hovermode="x unified", legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
+                yaxis=dict(nticks=20, exponentformat='none', title="<b>RGA [sm3/sm3]</b>", titlefont=dict(
+                        color="black"), tickfont=dict(color="black")),
+                yaxis3=dict(nticks=20, exponentformat='none', title="<b>Corte de Agua [%]</b>", titlefont=dict(color="black"), tickfont=dict(color="black"),
+                    anchor="x",
+                    overlaying="y",
+                    side="right",
+                    position=0.95),
+                yaxis4=dict(nticks=20,exponentformat='none', title="<b>RAA [sm3/sm3]</b>", titlefont=dict(color="black"), tickfont=dict(color="black", size=15),
+                    anchor="free",
+                    overlaying="y",
+                    side="right",
+                    position=1))
+            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=500, width=1230, font=dict(family="sans-serif", size=15, color="black"))
+            raa_rga_plot.update_yaxes(rangemode="tozero")
+            prod_plots[0].plotly_chart(raa_rga_plot)
+
+            if st.button('Export FT Plot 2') == True:
+                prod_plots[0].raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
             
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
