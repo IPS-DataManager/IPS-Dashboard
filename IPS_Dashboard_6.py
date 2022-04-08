@@ -134,7 +134,7 @@ if st.session_state['authentication_status']:
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
             prod_plots[0].w_prod_plot
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
-                prod_plots[0].well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
+                well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
             
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
