@@ -160,7 +160,7 @@ if st.session_state['authentication_status']:
             raa_rga_plot.update_yaxes(rangemode="tozero")
             prod_plots[0].plotly_chart(raa_rga_plot)
 
-            if st.button('Export FT Plot 2') == True:
+            if st.button(f'Exportar Gráfico de RAA-RGA Histórica {filt_pozos}') == True:
                 prod_plots[0].raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
             
 ################################################################################################################################################################
