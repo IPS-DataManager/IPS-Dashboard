@@ -127,12 +127,12 @@ if st.session_state['authentication_status']:
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='green'),name='Aceite'),secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Agua_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='blue'), name='Agua'), secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='red'),name='Gas'),secondary_y=True)
-            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=15, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=500, width=1200)
+            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=15, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=500, width=600)
             w_prod_plot.update_yaxes(title_text="<b> Aceite [SBPD] / Agua [SBPD] </b> ", secondary_y=False, nticks=10)
             w_prod_plot.update_yaxes(title_text="<b> Gas [MMSPCD]</b>", secondary_y=True, nticks=10)
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
             w_prod_plot
-            if st.button('Export COMBO FT Plot 1') == True:
+            if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
                 well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
             
 ################################################################################################################################################################
