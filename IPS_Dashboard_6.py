@@ -168,7 +168,7 @@ if st.session_state['authentication_status']:
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wc'], name="Corte de Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wor'], name="RAA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
-            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=950, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
+            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1020, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
             raa_rga_plot.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":100,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
                 yaxis=dict(nticks=20, exponentformat='none', title="RGA [sm3/sm3]", titlefont=dict(
                         color="black", size=12), tickfont=dict(color="black", size=9)),
@@ -176,7 +176,7 @@ if st.session_state['authentication_status']:
                     anchor="x",
                     overlaying="y",
                     side="right",
-                    position=0.95),
+                    position= 1),
                 yaxis4=dict(nticks=20,exponentformat='none', title="RAA [sm3/sm3]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9),
                     anchor="free",
                     overlaying="y",
