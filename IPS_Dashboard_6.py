@@ -177,9 +177,9 @@ if st.session_state['authentication_status']:
             cum_gas_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
             cum_prod[0].cum_gas_plot
             
-            cum_prod[1].caption("Accumulated Oil Production: " + str(round(pozo['Aceite_bpm'].sum()/MM,2)) + " Million Barrels")
-            cum_prod[1].caption("Accumulated Water Production: " + str(round(pozo['Agua_bpm'].sum()/MM,2)) + " Million Barrels")
-            cum_prod[1].caption("Accumulated Gas Production: " + str(round(pozo['gas_mmcfpm'].sum(),2)) + " Million Cubic Feet")
+            cum_prod[1].caption("Accumulated Oil Production: " + str(round(pozo['Aceite_bpm'].sum()/MM,2)) + " Millones de Barriles")
+            cum_prod[1].caption("Accumulated Water Production: " + str(round(pozo['Agua_bpm'].sum()/MM,2)) + " Millones de Barriles")
+            cum_prod[1].caption("Accumulated Gas Production: " + str(round(pozo['Gas_mmcfpm'].sum()/MM,2)) + " Millones de Pies Cúbicos")
                         
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
                 st.well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
