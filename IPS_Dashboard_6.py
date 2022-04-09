@@ -183,7 +183,7 @@ if st.session_state['authentication_status']:
             st.caption("Producción acumulada de gas: " + str(round(pozo['Gas_mmcfpm'].sum(),2)) + " Millones de Pies Cúbicos")
                         
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
-                st.well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
+                st.w_prod_plot.write_html(f'{filt_pozos} Histórico de Producción.html')
             if st.button(f'Exportar Gráfico de RAA-RGA Histórica {filt_pozos}') == True:
                 st.raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
                 
