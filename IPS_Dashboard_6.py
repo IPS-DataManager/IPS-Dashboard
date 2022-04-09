@@ -152,7 +152,7 @@ if st.session_state['authentication_status']:
                         anchor="free",
                         overlaying="y",
                         side="left",
-                        position=0),
+                        position=0.03),
                 yaxis3=dict(nticks=20, exponentformat='none', title="Gas [MMPCPD]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9),
                         anchor="x",
                         overlaying="y",
@@ -162,7 +162,7 @@ if st.session_state['authentication_status']:
                         anchor="free",
                         overlaying="y",
                         side="right",
-                        position=1))
+                        position=0.98))
             well_prod_press.update_yaxes(rangemode="tozero")
             st.plotly_chart(well_prod_press)
             
@@ -171,7 +171,7 @@ if st.session_state['authentication_status']:
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wc'], name="Corte de Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wor'], name="RAA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
             raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1050, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
-            raa_rga_plot.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":100,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
+            raa_rga_plot.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":200,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
                 yaxis=dict(nticks=20, exponentformat='none', title="RGA [sm3/sm3]", titlefont=dict(
                         color="black", size=12), tickfont=dict(color="black", size=9)),
                 yaxis3=dict(nticks=20, exponentformat='none', title="Corte de Agua [%]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9),
