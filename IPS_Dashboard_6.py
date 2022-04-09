@@ -163,19 +163,19 @@ if st.session_state['authentication_status']:
             cum_oil_plot.update_traces(marker=dict(color='green'))
             cum_oil_plot.update_yaxes(title_text="<b>Aceite [bbls]</b>", nticks=10)
             cum_oil_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
-            cum_prod[0].cum_oil_plot
+            cum_prod[0].plotly_chart(cum_oil_plot)
             cum_water_plot = px.ecdf(pozo, x="Fecha", y="Agua_bpm", ecdfnorm=None)
             cum_water_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Agua Acumulada {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=500)
             cum_water_plot.update_traces(marker=dict(color='blue'))
             cum_water_plot.update_yaxes(title_text="<b>Agua [bbls]</b>", nticks=10)
             cum_water_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
-            cum_prod[0].cum_water_plot                      
+            cum_prod[0].plotly_chart(cum_water_plot)
             cum_gas_plot = px.ecdf(pozo, x="Fecha", y="Gas_mmcfpm", ecdfnorm=None)
             cum_gas_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Gas Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=500)
             cum_gas_plot.update_traces(marker=dict(color='red'))
             cum_gas_plot.update_yaxes(title_text="<b>Gas [MMPCPD]</b>", nticks=10)
             cum_gas_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
-            cum_prod[0].cum_gas_plot
+            cum_prod[0].plotly_chart(cum_gas_plot)
             
             cum_prod[1].caption("Accumulated Oil Production: " + str(round(pozo['Aceite_bpm'].sum()/MM,2)) + " Millones de Barriles")
             cum_prod[1].caption("Accumulated Water Production: " + str(round(pozo['Agua_bpm'].sum()/MM,2)) + " Millones de Barriles")
