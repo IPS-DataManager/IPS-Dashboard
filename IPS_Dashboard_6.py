@@ -68,18 +68,18 @@ if st.session_state['authentication_status']:
         prod.columns = [x.capitalize() for x in prod.columns]
         
         press_pr = pd.read_csv('Data//RPFC-Plano de referencia.csv')
-        press_pr['fecha'] = pd.to_datetime(press_pr['fecha']).dt.strftime('%d-%m-%Y')
+        press_pr['fecha'] = pd.to_datetime(press_pr['fecha']).dt.date
         press_pr.columns = [x.capitalize() for x in press_pr.columns]
                 
         press_nmd = pd.read_csv('Data//RPFC-NMD.csv')
-        press_nmd['fecha'] = pd.to_datetime(press_nmd['fecha']).dt.strftime('%d-%m-%Y')
+        press_nmd['fecha'] = pd.to_datetime(press_nmd['fecha']).dt.date
         press_nmd.columns = [x.capitalize() for x in press_nmd.columns]
         
         coords = pd.read_csv('Data//Coords.csv')
         coords.columns = [x.lower() for x in coords.columns]
         
         raa_rga = pd.read_csv('Data//RAA-RGA.csv')
-        raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.strftime('%d-%m-%Y')
+        raa_rga['fecha'] = pd.to_datetime(raa_rga['fecha']).dt.date
         raa_rga['gor'] = raa_rga['gor'].astype(float)
         raa_rga['wor'] = raa_rga['wor'].astype(float)
         raa_rga['wc'] = raa_rga['wc'].astype(float)
