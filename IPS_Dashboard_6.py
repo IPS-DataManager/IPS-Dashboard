@@ -141,9 +141,9 @@ if st.session_state['authentication_status']:
             press_pozo
             
             well_prod_press = go.Figure()
-            well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], name="Aceite", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
+            well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], name="Aceite", mode='lines', marker_line_width=.3, marker=dict(size=5,color='green')))
             well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Agua_bpd'], name="Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y2"))
-            well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], name="Gas", mode='lines', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y3"))
+            well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], name="Gas", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red'), yaxis="y3"))
             well_prod_press.add_trace(go.Scatter(x=press_pozo['Fecha'], y=press_pozo['De fondo cerrado gradiente de yacimiento (kg/cm2)'], name="Presión", mode='lines', marker_line_width=.3, marker=dict(size=5,color='black'), yaxis="y4"))
             well_prod_press.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1050, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
             well_prod_press.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":100,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0.3, 0.7]),
