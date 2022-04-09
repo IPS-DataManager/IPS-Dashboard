@@ -119,7 +119,7 @@ if st.session_state['authentication_status']:
                 
         with st.expander('RESUMEN DE POZOS'):
             st.write('Consultar expedientes - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
-            map_pozos_loc = px.scatter_mapbox(well_sum, lat="Latitud", lon="Longitud", hover_name=['Pozo','Fecha de terminacion', 'Estado'], zoom=7.5, color='Estado')
+            map_pozos_loc = px.scatter_mapbox(well_sum, lat="Latitud", lon="Longitud", zoom=7.5, color='Estado')
             map_pozos_loc.update_layout(mapbox_style="stamen-terrain", margin={"r":0,"t":0,"l":0,"b":0}, showlegend=False)
             map_pozos_loc
             well_sum
