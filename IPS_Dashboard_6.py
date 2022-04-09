@@ -86,7 +86,7 @@ if st.session_state['authentication_status']:
         raa_rga.columns = [x.capitalize() for x in raa_rga.columns]
         
         well_sum = pd.read_excel('Data//Resumen de pozos_2.xlsx')
-        #well_sum['Fecha de terminacion'] = pd.to_datetime(well_sum['Fecha de terminacion']).dt.date
+        well_sum['Fecha de terminacion'] = pd.to_datetime(well_sum['Fecha de terminacion']).dt.date
         well_sum.columns = [x.capitalize() for x in well_sum.columns]
         
         shots = pd.read_excel('Data//Zones.xlsx', sheet_name='INTERVALOS')
@@ -120,7 +120,7 @@ if st.session_state['authentication_status']:
         with st.expander('RESUMEN DE POZOS'):
             st.write('Consultar expedientes - http://187.157.54.226:5000/d/s/678868682763449491/cZDf3kcwj06VPeCKpffcSo_zjQMX_uD0-7bmgbazTawk_')
             map_pozos_loc = px.scatter_mapbox(well_sum, lat="Latitud", hover_name='Pozo', lon="Longitud", zoom=10, color='Estado')
-            map_pozos_loc.update_layout(mapbox_style="stamen-terrain", margin={"r":0,"t":100,"l":200,"b":0}, legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=0.9), showlegend=True, autosize=True)
+            map_pozos_loc.update_layout(mapbox_style="stamen-terrain", margin={"r":0,"t":100,"l":0,"b":0}, legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=0.9), showlegend=True, autosize=True)
             map_pozos_loc
             well_sum
             
