@@ -140,7 +140,7 @@ if st.session_state['authentication_status']:
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wc'], name="Corte de Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wor'], name="RAA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
-            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1000, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
+            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1050, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
             raa_rga_plot.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":100,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
                 yaxis=dict(nticks=20, exponentformat='none', title="<b>RGA [sm3/sm3]</b>", titlefont=dict(
                         color="black", size=9), tickfont=dict(color="black", size=9)),
@@ -159,19 +159,19 @@ if st.session_state['authentication_status']:
             
             cum_prod = st.columns(3)
             cum_oil_plot = px.ecdf(pozo, x="Fecha", y="Aceite_bpm", ecdfnorm=None)
-            cum_oil_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Aceite Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=350)
+            cum_oil_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Aceite Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=200, width=350)
             cum_oil_plot.update_traces(marker=dict(color='green'))
             cum_oil_plot.update_yaxes(title_text="<b>Aceite [bbls]</b>", nticks=10)
             cum_oil_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
             cum_prod[0].plotly_chart(cum_oil_plot)
             cum_water_plot = px.ecdf(pozo, x="Fecha", y="Agua_bpm", ecdfnorm=None)
-            cum_water_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Agua Acumulada {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=350)
+            cum_water_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Agua Acumulada {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=200, width=350)
             cum_water_plot.update_traces(marker=dict(color='blue'))
             cum_water_plot.update_yaxes(title_text="<b>Agua [bbls]</b>", nticks=10)
             cum_water_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
             cum_prod[1].plotly_chart(cum_water_plot)
             cum_gas_plot = px.ecdf(pozo, x="Fecha", y="Gas_mmcfpm", ecdfnorm=None)
-            cum_gas_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Gas Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=350)
+            cum_gas_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Gas Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=200, width=350)
             cum_gas_plot.update_traces(marker=dict(color='red'))
             cum_gas_plot.update_yaxes(title_text="<b>Gas [MMPCPD]</b>", nticks=10)
             cum_gas_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
