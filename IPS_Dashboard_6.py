@@ -152,7 +152,7 @@ if st.session_state['authentication_status']:
                         anchor="free",
                         overlaying="y",
                         side="left",
-                        position=0.15),
+                        position=0.10),
                 yaxis3=dict(nticks=20, exponentformat='none', title="Gas [MMPCPD]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9),
                         anchor="x",
                         overlaying="y",
@@ -161,7 +161,7 @@ if st.session_state['authentication_status']:
                         anchor="free",
                         overlaying="y",
                         side="right",
-                        position=0.85))
+                        position=0.90))
             well_prod_press.update_yaxes(rangemode="tozero")
             st.plotly_chart(well_prod_press)
             
