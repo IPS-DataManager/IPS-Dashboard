@@ -138,7 +138,24 @@ if st.session_state['authentication_status']:
             
             ### PRESION-POZO ###
             press_pozo = press_pr[press_pr['Pozo'] == filt_pozos]
+            
             press_pozo
+            
+            well_prod_press = go.Figure()
+            well_prod_press = make_subplots(specs=[[{"secondary_y": True}]])
+            well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='green'),name='Aceite'),secondary_y=False)
+            well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Agua_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='blue'), name='Agua'), secondary_y=False)
+            well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='red'),name='Gas'),secondary_y=True)
+            well_prod_press.add_trace(go.Scatter(x=press_pozo['Fecha'], y=pozo['De fondo cerrado gradiente de yacimiento (kg/cm2)'], name="Presión", mode='lines', marker_line_width=.3, marker=dict(size=5,color='black'), yaxis="y4"))
+            well_prod_press.update_layout(title_text=f'Producción {filt_pozos}', height=350, width=1050, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
+            well_prod_press.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":100,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
+                yaxis4=dict(nticks=20,exponentformat='none', title="<b>Presión de fondo cerrado [kg/cm2]</b>", titlefont=dict(color="black", size=10), tickfont=dict(color="black", size=9),
+                    anchor="free",
+                    overlaying="y",
+                    side="right",
+                    position=1))
+            well_prod_press.update_yaxes(rangemode="tozero")
+            st.plotly_chart(well_prod_press)
             
             raa_rga_plot = go.Figure()
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
