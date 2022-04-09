@@ -157,7 +157,7 @@ if st.session_state['authentication_status']:
             raa_rga_plot.update_yaxes(rangemode="tozero")
             st.plotly_chart(raa_rga_plot)
             
-            cum_prod = st.columns(2)
+            cum_prod = st.columns(3)
             cum_oil_plot = px.ecdf(pozo, x="Fecha", y="Aceite_bpm", ecdfnorm=None)
             cum_oil_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Aceite Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=350)
             cum_oil_plot.update_traces(marker=dict(color='green'))
@@ -169,18 +169,18 @@ if st.session_state['authentication_status']:
             cum_water_plot.update_traces(marker=dict(color='blue'))
             cum_water_plot.update_yaxes(title_text="<b>Agua [bbls]</b>", nticks=10)
             cum_water_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
-            cum_prod[0].plotly_chart(cum_water_plot)
+            cum_prod[1].plotly_chart(cum_water_plot)
             cum_gas_plot = px.ecdf(pozo, x="Fecha", y="Gas_mmcfpm", ecdfnorm=None)
             cum_gas_plot.update_layout(font=dict(family="sans-serif", size=10, color="black"), hovermode="x unified", title=f'Producción de Gas Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=350)
             cum_gas_plot.update_traces(marker=dict(color='red'))
             cum_gas_plot.update_yaxes(title_text="<b>Gas [MMPCPD]</b>", nticks=10)
             cum_gas_plot.update_xaxes(title_text="<b>Años</b>", nticks=10)
-            cum_prod[0].plotly_chart(cum_gas_plot)
+            cum_prod[2].plotly_chart(cum_gas_plot)
             
-            cum_prod[1].subheader('Descripción de pozo')
-            cum_prod[1].caption("Producción acumulada de aceite: " + str(round(pozo['Aceite_bpm'].sum()/MM,2)) + " Millones de Barriles")
-            cum_prod[1].caption("Producción acumulada de agua: " + str(round(pozo['Agua_bpm'].sum()/MM,2)) + " Millones de Barriles")
-            cum_prod[1].caption("Producción acumulada de gas: " + str(round(pozo['Gas_mmcfpm'].sum(),2)) + " Millones de Pies Cúbicos")
+            st.subheader('Descripción de pozo')
+            st.caption("Producción acumulada de aceite: " + str(round(pozo['Aceite_bpm'].sum()/MM,2)) + " Millones de Barriles")
+            st.caption("Producción acumulada de agua: " + str(round(pozo['Agua_bpm'].sum()/MM,2)) + " Millones de Barriles")
+            st.caption("Producción acumulada de gas: " + str(round(pozo['Gas_mmcfpm'].sum(),2)) + " Millones de Pies Cúbicos")
                         
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
                 st.well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
