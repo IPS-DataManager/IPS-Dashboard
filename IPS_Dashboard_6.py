@@ -126,16 +126,15 @@ if st.session_state['authentication_status']:
             shots
             
         with st.expander('GRÁFICOS DE PRODUCTIVIDAD'):
-            prod_plots = st.columns(2)
             w_prod_plot = make_subplots(specs=[[{"secondary_y": True}]])
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='green'),name='Aceite'),secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Agua_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='blue'), name='Agua'), secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='red'),name='Gas'),secondary_y=True)
-            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=12, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=500, width=1200)
+            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=12, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":0,"b":0}, height=500, width=1030)
             w_prod_plot.update_yaxes(title_text="<b> Aceite [SBPD] / Agua [SBPD] </b> ", secondary_y=False, nticks=10)
             w_prod_plot.update_yaxes(title_text="<b> Gas [MMSPCD]</b>", secondary_y=True, nticks=10)
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
-            prod_plots[0].plotly_chart(w_prod_plot)
+            st.plotly_chart(w_prod_plot)
                 
             raa_rga_plot = go.Figure()
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
@@ -154,9 +153,9 @@ if st.session_state['authentication_status']:
                     overlaying="y",
                     side="right",
                     position=1))
-            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=500, width=1230, font=dict(family="sans-serif", size=12, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
+            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=500, width=1030, font=dict(family="sans-serif", size=12, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
             raa_rga_plot.update_yaxes(rangemode="tozero")
-            prod_plots[0].plotly_chart(raa_rga_plot)
+            st.plotly_chart(raa_rga_plot)
 
             cum_oil_plot = px.ecdf(pozo, x="Fecha", y="Aceite_bpm", ecdfnorm=None)
             cum_oil_plot.update_layout(hovermode="x unified", title=f'Producción de Aceite Acumulado {filt_pozos}', legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":50,"l":0,"b":0}, height=200, width=500)
@@ -178,9 +177,10 @@ if st.session_state['authentication_status']:
             cum_gas_plot
             
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
-                prod_plots[0].well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
+                st.well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
             if st.button(f'Exportar Gráfico de RAA-RGA Histórica {filt_pozos}') == True:
-                prod_plots[0].raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
+                st..raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
+                
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
     st.error('Username/password is incorrect')
