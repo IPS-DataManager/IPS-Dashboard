@@ -148,7 +148,7 @@ if st.session_state['authentication_status']:
                     overlaying="y",
                     side="right",
                     position=0.95),
-                yaxis4=dict(nticks=20,exponentformat='none', title="<b>RAA [sm3/sm3]</b>", titlefont=dict(color="black"), tickfont=dict(color="black", size=15),
+                yaxis4=dict(nticks=20,exponentformat='none', title="<b>RAA [sm3/sm3]</b>", titlefont=dict(color="black"), tickfont=dict(color="black", size=10),
                     anchor="free",
                     overlaying="y",
                     side="right",
