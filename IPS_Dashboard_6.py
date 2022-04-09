@@ -61,7 +61,7 @@ if st.session_state['authentication_status']:
     st.write('Bienvenido *%s*' % (st.session_state['name']))
     st.title('Tablero de Campos Maduros - Proyecto Sitio Grande')
 ################################################################################################################################################################
-    #@st.cache
+    @st.cache
     def data():
         prod = pd.read_csv('Data//Production.csv')
         prod['fecha'] = pd.to_datetime(prod['fecha']).dt.date
@@ -138,8 +138,7 @@ if st.session_state['authentication_status']:
             
             ### PRESION-POZO ###
             press_pozo = press_pr[press_pr['Pozo'] == filt_pozos]
-            
-            #press_pozo
+            press_pozo
             
             well_prod_press = go.Figure()
             well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], name="Aceite", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
