@@ -130,7 +130,7 @@ if st.session_state['authentication_status']:
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='green'),name='Aceite'),secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Agua_bpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='blue'), name='Agua'), secondary_y=False)
             w_prod_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], mode='lines', marker_line_width=.5, marker=dict(size=5,color='red'),name='Gas'),secondary_y=True)
-            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":100,"b":0}, height=350, width=970)
+            w_prod_plot.update_layout(title_text = f'Histórico de producción {filt_pozos}', hovermode="x unified", font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1), margin={"r":0,"t":100,"l":100,"b":0}, height=350, width=1020)
             w_prod_plot.update_yaxes(title_text="<b> Aceite [SBPD] / Agua [SBPD] </b> ", secondary_y=False, nticks=10)
             w_prod_plot.update_yaxes(title_text="<b> Gas [MMSPCD]</b>", secondary_y=True, nticks=10)
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
@@ -140,6 +140,7 @@ if st.session_state['authentication_status']:
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gor'], name="RGA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red')))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wc'], name="Corte de Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wor'], name="RAA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
+            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1000, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
             raa_rga_plot.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":100,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
                 yaxis=dict(nticks=20, exponentformat='none', title="<b>RGA [sm3/sm3]</b>", titlefont=dict(
                         color="black", size=9), tickfont=dict(color="black", size=9)),
@@ -153,7 +154,6 @@ if st.session_state['authentication_status']:
                     overlaying="y",
                     side="right",
                     position=1))
-            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1000, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
             raa_rga_plot.update_yaxes(rangemode="tozero")
             st.plotly_chart(raa_rga_plot)
             
