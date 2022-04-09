@@ -1,9 +1,13 @@
 area,nombre_c,nombre,apellido,usuario,pass
-CM,Victor Torres,Victor,Torres,vtorres,0000
-CM,Jesse ElAayi,Jesse,ElAayi,jelaayi,0001
-CM,Yunaizy Valbuena,Yunaizy,Valbuena,yvalbuen,0002
-CM,Jesus Contreras,Jesus,Contreras,jcontrer,0003
-CM,Romeo Solis,Romeo,Solis,rsolis,0004
-CM,Tamer Hag,Tamer,Hag,thag,0005
-CM,Fabiola Vivas,Fabiola,Vivas,fvivas,0006
-CM,Francisco Cordova,Francisco,Cordova,fcordova,0007
+CM,Victor Torres,Victor,Torres,vtorres,0
+CM,Jesse ElAayi,Jesse,ElAayi,jelaayi,1
+CM,Yunaizy Valbuena,Yunaizy,Valbuena,yvalbuen,2
+CM,Jesus Contreras,Jesus,Contreras,jcontrer,3
+CM,Romeo Solis,Romeo,Solis,rsolis,4
+CM,Tamer Hag,Tamer,Hag,thag,5
+CM,Fabiola Vivas,Fabiola,Vivas,fvivas,6
+CM,Francisco Cordova,Francisco,Cordova,fcordova,7
+INT A POZOS,Jose Colin,Jose,Colin,fcolin,8
+INT A POZOS,Nadya Gallegos,Nadya,Gallegos,ngalleg,9
+INT A POZOS,Fracisco Bolaina,Francisco,Bolaina,fbolaina,10
+INT A POZOS,Luis Cerino,Luis,Cerino,lcerino,11
