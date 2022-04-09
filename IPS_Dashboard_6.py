@@ -153,7 +153,7 @@ if st.session_state['authentication_status']:
                     overlaying="y",
                     side="right",
                     position=1))
-            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=830, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
+            raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=850, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
             raa_rga_plot.update_yaxes(rangemode="tozero")
             st.plotly_chart(raa_rga_plot)
 
