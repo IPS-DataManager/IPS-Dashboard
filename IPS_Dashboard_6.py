@@ -206,6 +206,7 @@ if st.session_state['authentication_status']:
             cum_prod[2].plotly_chart(cum_gas_plot)
             
             st.subheader('Descripción de pozo')
+            st.caption("Ultima medición: " + str(pozo['Fecha'].iloc[-1]))
             st.caption("Producción acumulada de aceite: " + str(round(pozo['Aceite_bpm'].sum()/MM,2)) + " Millones de Barriles")
             st.caption("Producción acumulada de agua: " + str(round(pozo['Agua_bpm'].sum()/MM,2)) + " Millones de Barriles")
             st.caption("Producción acumulada de gas: " + str(round(pozo['Gas_mmcfpm'].sum(),2)) + " Millones de Pies Cúbicos")
