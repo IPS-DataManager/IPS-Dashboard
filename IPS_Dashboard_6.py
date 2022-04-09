@@ -207,7 +207,8 @@ if st.session_state['authentication_status']:
             
             st.subheader('Descripción de pozo')
             st.caption("Ultima medición: " + str(pozo['Fecha'].iloc[-1]))
-            st.caption("Qo Inicial: " + str(pozo['Aceite_bpd'].iloc[0]), "Qo Final: " + str(pozo['Aceite_bpd'].iloc[-1]))
+            st.caption("Qo Inicial: " + str(pozo['Aceite_bpd'].iloc[0])) 
+            st.caption("Qo Final: " + str(pozo['Aceite_bpd'].iloc[-1]))
             st.caption("Producción acumulada de aceite: " + str(round(pozo['Aceite_bpm'].sum()/MM,2)) + " Millones de Barriles")
             st.caption("Producción acumulada de agua: " + str(round(pozo['Agua_bpm'].sum()/MM,2)) + " Millones de Barriles")
             st.caption("Producción acumulada de gas: " + str(round(pozo['Gas_mmcfpm'].sum(),2)) + " Millones de Pies Cúbicos")
