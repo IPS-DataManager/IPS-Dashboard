@@ -86,7 +86,7 @@ if st.session_state['authentication_status']:
         raa_rga.columns = [x.capitalize() for x in raa_rga.columns]
         
         well_sum = pd.read_excel('Data//Resumen de pozos_2.xlsx')
-        well_sum['Fecha de terminacion'] = pd.to_datetime(well_sum['Fecha de terminacion']).dt.date
+        #well_sum['Fecha de terminacion'] = pd.to_datetime(well_sum['Fecha de terminacion']).dt.date
         well_sum.columns = [x.capitalize() for x in well_sum.columns]
         
         shots = pd.read_excel('Data//Zones.xlsx', sheet_name='INTERVALOS')
