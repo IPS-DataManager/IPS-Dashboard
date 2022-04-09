@@ -179,7 +179,7 @@ if st.session_state['authentication_status']:
             if st.button(f'Exportar Gráfico de Producción Histórica {filt_pozos}') == True:
                 st.well_prod_2.write_html(f'{filt_pozos} Histórico de Producción.html')
             if st.button(f'Exportar Gráfico de RAA-RGA Histórica {filt_pozos}') == True:
-                st..raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
+                st.raa_rga_plot.write_html(f'{filt_pozos} WOR-GOR-WC% historico.html')
                 
 ################################################################################################################################################################
 elif st.session_state['authentication_status'] == False:
