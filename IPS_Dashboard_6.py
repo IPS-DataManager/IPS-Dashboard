@@ -134,25 +134,23 @@ if st.session_state['authentication_status']:
             w_prod_plot.update_yaxes(title_text="<b> Aceite [SBPD] / Agua [SBPD] </b> ", secondary_y=False, nticks=10)
             w_prod_plot.update_yaxes(title_text="<b> Gas [MMSPCD]</b>", secondary_y=True, nticks=10)
             w_prod_plot.update_xaxes(title_text="<b>Año</b>", nticks=25)
-            st.plotly_chart(w_prod_plot)
+            #st.plotly_chart(w_prod_plot)
             
             ### PRESION-POZO ###
             press_pozo = press_pr[press_pr['Pozo'] == filt_pozos]
-            press_pozo
-            
             well_prod_press = go.Figure()
             well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Aceite_bpd'], name="Aceite", mode='lines', marker_line_width=.3, marker=dict(size=5,color='green')))
             well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Agua_bpd'], name="Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y2"))
             well_prod_press.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Gas_mmcfpd'], name="Gas", mode='lines', marker_line_width=.3, marker=dict(size=5,color='red'), yaxis="y3"))
             well_prod_press.add_trace(go.Scatter(x=press_pozo['Fecha'], y=press_pozo['De fondo cerrado gradiente de yacimiento (kg/cm2)'], line={'dash': 'dash', 'color': 'DarkSlateGrey'}, name="Presión", mode='lines', marker_line_width=.3, yaxis="y4"))
-            well_prod_press.update_layout(title_text=f'HISTÓRICO DE PRODUCCIÓN {filt_pozos}', height=350, width=1150, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=0.9))
+            well_prod_press.update_layout(title_text=f'HISTÓRICO DE PRODUCCIÓN {filt_pozos}', height=350, width=1050, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=0.9))
             well_prod_press.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":0,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0.1, 0.9]),
-                yaxis=dict(nticks=20, exponentformat='none', title="Aceite [SBPD]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9), position=0.1),
+                yaxis=dict(nticks=20, exponentformat='none', title="Aceite [SBPD]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9), position=0),
                 yaxis2=dict(nticks=30, exponentformat='none', title="Agua [SBPD]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9),
                         anchor="free",
                         overlaying="y",
                         side="left",
-                        position=0.03),
+                        position=0.05),
                 yaxis3=dict(nticks=20, exponentformat='none', title="Gas [MMPCPD]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9),
                         anchor="x",
                         overlaying="y",
@@ -162,7 +160,7 @@ if st.session_state['authentication_status']:
                         anchor="free",
                         overlaying="y",
                         side="right",
-                        position=0.98))
+                        position=1))
             well_prod_press.update_yaxes(rangemode="tozero")
             st.plotly_chart(well_prod_press)
             
@@ -171,7 +169,7 @@ if st.session_state['authentication_status']:
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wc'], name="Corte de Agua", mode='lines', marker_line_width=.3, marker=dict(size=5,color='blue'), yaxis="y3"))
             raa_rga_plot.add_trace(go.Scatter(x=pozo['Fecha'], y=pozo['Wor'], name="RAA", mode='lines', marker_line_width=.3, marker=dict(size=5,color='skyblue'), yaxis="y4"))
             raa_rga_plot.update_layout(title_text=f'RGA/RAA {filt_pozos}', height=350, width=1050, font=dict(family="sans-serif", size=10, color="black"), legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1))
-            raa_rga_plot.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":200,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
+            raa_rga_plot.update_layout(hovermode="x unified", margin={"r":0,"t":100,"l":100,"b":0}, xaxis=dict(title_text="<b>Año</b>", nticks=25, domain=[0, 0.95]),
                 yaxis=dict(nticks=20, exponentformat='none', title="RGA [sm3/sm3]", titlefont=dict(
                         color="black", size=12), tickfont=dict(color="black", size=9)),
                 yaxis3=dict(nticks=20, exponentformat='none', title="Corte de Agua [%]", titlefont=dict(color="black", size=12), tickfont=dict(color="black", size=9),
