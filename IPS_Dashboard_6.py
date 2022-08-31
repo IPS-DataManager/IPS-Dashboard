@@ -48,7 +48,7 @@ days = 30.5
 MM = 1000000
 
 ######################################## Authentication ########################################
-users = pd.read_csv('Usuarios//Usuarios.csv', encoding='utf-8')
+users = pd.read_csv('Usuarios//Usuarios.csv')
 users['pass'] = users['pass'].astype(str)
 users['pass'] = '000' + users['pass']
 hashed_passwords = stauth.hasher(users['pass']).generate()
